@@ -1,0 +1,362 @@
+#   
+<index.html>  
+<html lang="es">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  
+<title>Quejas CQ</title>  
+  
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+  
+<style>  
+  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+}  
+  
+body{  
+    font-family:'Poppins',sans-serif;  
+    min-height:100vh;  
+    background:  
+    linear-gradient(135deg,#5c0000,#9b0000,#c40000);  
+    overflow-x:hidden;  
+    position:relative;  
+    color:white;  
+}  
+  
+/* DECORACIONES */  
+  
+body::before{  
+    content:"";  
+    position:absolute;  
+    width:600px;  
+    height:600px;  
+    background:rgba(255,255,255,0.05);  
+    border-radius:50%;  
+    top:-200px;  
+    left:-200px;  
+}  
+  
+body::after{  
+    content:"";  
+    position:absolute;  
+    width:500px;  
+    height:500px;  
+    background:rgba(255,255,255,0.04);  
+    border-radius:50%;  
+    bottom:-180px;  
+    right:-180px;  
+}  
+  
+.container{  
+    width:90%;  
+    max-width:950px;  
+    margin:40px auto;  
+    background:rgba(255,255,255,0.12);  
+    border:1px solid rgba(255,255,255,0.15);  
+    backdrop-filter:blur(12px);  
+    border-radius:30px;  
+    padding:40px;  
+    box-shadow:0 0 40px rgba(0,0,0,0.35);  
+    position:relative;  
+    z-index:1;  
+}  
+  
+.logo{  
+    display:flex;  
+    justify-content:center;  
+    margin-bottom:15px;  
+}  
+  
+.logo img{  
+    width:170px;  
+    filter:drop-shadow(0 0 10px rgba(0,0,0,0.3));  
+}  
+  
+h1{  
+    text-align:center;  
+    font-size:58px;  
+    color:white;  
+    margin-bottom:10px;  
+    font-weight:700;  
+}  
+  
+.subtitle{  
+    text-align:center;  
+    color:#f0f0f0;  
+    font-size:17px;  
+    margin-bottom:35px;  
+    line-height:1.7;  
+}  
+  
+.info-bar{  
+    width:fit-content;  
+    margin:auto;  
+    margin-bottom:35px;  
+    padding:12px 22px;  
+    border-radius:999px;  
+    background:rgba(255,255,255,0.15);  
+    border:1px solid rgba(255,255,255,0.2);  
+    font-size:14px;  
+}  
+  
+.form-grid{  
+    display:grid;  
+    grid-template-columns:1fr 1fr;  
+    gap:22px;  
+}  
+  
+.full{  
+    grid-column:1/3;  
+}  
+  
+.input-group{  
+    background:rgba(255,255,255,0.08);  
+    padding:18px;  
+    border-radius:18px;  
+    border:1px solid rgba(255,255,255,0.08);  
+}  
+  
+label{  
+    display:block;  
+    margin-bottom:10px;  
+    font-weight:500;  
+    font-size:15px;  
+}  
+  
+input,  
+select,  
+textarea{  
+    width:100%;  
+    padding:15px;  
+    border:none;  
+    border-radius:14px;  
+    background:rgba(255,255,255,0.12);  
+    color:white;  
+    font-size:15px;  
+    outline:none;  
+    transition:0.3s;  
+}  
+  
+input::placeholder,  
+textarea::placeholder{  
+    color:#dddddd;  
+}  
+  
+input:focus,  
+textarea:focus,  
+select:focus{  
+    background:rgba(255,255,255,0.2);  
+    transform:scale(1.01);  
+}  
+  
+select option{  
+    color:black;  
+}  
+  
+textarea{  
+    min-height:180px;  
+    resize:none;  
+}  
+  
+button{  
+    width:100%;  
+    padding:18px;  
+    border:none;  
+    border-radius:18px;  
+    background:linear-gradient(135deg,#ff1f1f,#b30000);  
+    color:white;  
+    font-size:20px;  
+    font-weight:700;  
+    cursor:pointer;  
+    transition:0.3s;  
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);  
+}  
+  
+button:hover{  
+    transform:translateY(-4px);  
+    background:linear-gradient(135deg,#ff3b3b,#d10000);  
+}  
+  
+.cards{  
+    display:grid;  
+    grid-template-columns:repeat(4,1fr);  
+    gap:15px;  
+    margin-top:35px;  
+}  
+  
+.card{  
+    background:rgba(255,255,255,0.1);  
+    border-radius:18px;  
+    padding:20px;  
+    text-align:center;  
+    border:1px solid rgba(255,255,255,0.08);  
+    transition:0.3s;  
+}  
+  
+.card:hover{  
+    transform:translateY(-5px);  
+    background:rgba(255,255,255,0.15);  
+}  
+  
+.card h3{  
+    margin-top:10px;  
+    margin-bottom:8px;  
+}  
+  
+.footer{  
+    text-align:center;  
+    margin-top:30px;  
+    color:#f1f1f1;  
+    font-size:14px;  
+}  
+  
+@media(max-width:850px){  
+  
+    .cards{  
+        grid-template-columns:1fr 1fr;  
+    }  
+  
+}  
+  
+@media(max-width:700px){  
+  
+    .container{  
+        padding:25px;  
+    }  
+  
+    .form-grid{  
+        grid-template-columns:1fr;  
+    }  
+  
+    .full{  
+        grid-column:auto;  
+    }  
+  
+    .cards{  
+        grid-template-columns:1fr;  
+    }  
+  
+    h1{  
+        font-size:42px;  
+    }  
+  
+}  
+  
+</style>  
+</head>  
+  
+<body>  
+  
+<div class="container">  
+  
+    <!-- LOGO -->  
+    <div class="logo">  
+        <img src="https://i.imgur.com/GW3YwN8.jpeg" alt="Logo Colegio">  
+    </div>  
+  
+    <h1>Quejas CQ</h1>  
+  
+    <p class="subtitle">  
+        Plataforma confidencial para reportar situaciones,  
+        problemas o inquietudes relacionadas con el colegio.  
+    </p>  
+  
+    <div class="info-bar">  
+        🔒 Tu información será tratada de manera privada y responsable  
+    </div>  
+  
+    <form action="https://formsubmit.co/agustinherreradavos@gmail.com" method="POST">  
+  
+        <input type="hidden" name="_captcha" value="false">  
+        <input type="hidden" name="_subject" value="Nueva Queja CQ">  
+        <input type="hidden" name="_template" value="table">  
+  
+        <div class="form-grid">  
+  
+            <div class="input-group">  
+                <label>Nombre (Opcional)</label>  
+                <input type="text" name="Nombre" placeholder="Ingresa tu nombre">  
+            </div>  
+  
+            <div class="input-group">  
+                <label>Curso</label>  
+                <input type="text" name="Curso" placeholder="Ej: 1° Medio B">  
+            </div>  
+  
+            <div class="input-group">  
+                <label>Correo (Opcional)</label>  
+                <input type="email" name="Correo" placeholder="ejemplo@gmail.com">  
+            </div>  
+  
+            <div class="input-group">  
+                <label>Tipo de situación</label>  
+  
+                <select name="Tipo">  
+                    <option>Problemas con profesores</option>  
+                    <option>Convivencia escolar</option>  
+                    <option>Bullying</option>  
+                    <option>Infraestructura</option>  
+                    <option>Problemas administrativos</option>  
+                    <option>Otro</option>  
+                </select>  
+            </div>  
+  
+            <div class="input-group full">  
+                <label>Describe la situación</label>  
+  
+                <textarea  
+                name="Queja"  
+                required  
+                placeholder="Explica detalladamente lo ocurrido..."></textarea>  
+            </div>  
+  
+            <div class="full">  
+                <button type="submit">  
+                    📩 Enviar Queja  
+                </button>  
+            </div>  
+  
+        </div>  
+  
+    </form>  
+  
+    <div class="cards">  
+  
+        <div class="card">  
+            <div style="font-size:40px;">🔒</div>  
+            <h3>Confidencial</h3>  
+            <p>Tu identidad estará protegida.</p>  
+        </div>  
+  
+        <div class="card">  
+            <div style="font-size:40px;">📨</div>  
+            <h3>Envío Directo</h3>  
+            <p>La queja llegará directamente.</p>  
+        </div>  
+  
+        <div class="card">  
+            <div style="font-size:40px;">⚡</div>  
+            <h3>Respuesta</h3>  
+            <p>Se busca mejorar la convivencia.</p>  
+        </div>  
+  
+        <div class="card">  
+            <div style="font-size:40px;">🏫</div>  
+            <h3>Colegio CQ</h3>  
+            <p>Construyendo un mejor ambiente.</p>  
+        </div>  
+  
+    </div>  
+  
+    <div class="footer">  
+        © 2026 Colegio Quillón - Corporación Educacional  
+    </div>  
+  
+</div>  
+  
+</body>  
+</html>  
